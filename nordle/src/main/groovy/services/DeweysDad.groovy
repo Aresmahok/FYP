@@ -1,4 +1,4 @@
-package Services
+package services
 
 /**
  * Created by mcmahok8 on 30/12/2014.
