@@ -1,4 +1,4 @@
-package Controllers
+package controllers
 
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
@@ -13,9 +13,6 @@ class Application {
 
     public static void main(String [] args){
         print("Main context initializer")
-
         SpringApplication.run(Application.class, args);
-
-
     }
 }
