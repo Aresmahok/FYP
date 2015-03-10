@@ -14,5 +14,7 @@ class Application {
     public static void main(String [] args){
         print("Main context initializer")
         SpringApplication.run(Application.class, args);
+
+
     }
 }
