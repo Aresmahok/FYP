@@ -3,8 +3,6 @@ package com.project.core.referee
 import com.project.core.game.Game
 import com.project.core.pitch.Pitch
 
-import javax.persistence.Entity
-
 /**
  * Created by ares on 09/03/15.
  */

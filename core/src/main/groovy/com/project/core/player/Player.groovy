@@ -2,8 +2,6 @@ package com.project.core.player
 
 import com.project.core.team.Team
 
-import javax.persistence.Entity
-
 /**
  * Created by ares on 09/03/15.
  */

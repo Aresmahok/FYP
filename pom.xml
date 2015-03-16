@@ -9,7 +9,8 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>project</module>
+        <module>core</module>
+        <module>web</module>
     </modules>
 
     <name>Fourth Year Project</name>
