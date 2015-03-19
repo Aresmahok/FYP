@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody
 
 @Controller
 class RootController {
-
     @RequestMapping("/")
     @ResponseBody
     def home() {

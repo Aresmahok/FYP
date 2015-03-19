@@ -1,20 +1,48 @@
 package com.project.core.player
 
-import com.project.core.team.Team
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 
 @Service
+@Transactional
 class PlayerServiceImpl implements PlayerService {
 
+    @Autowired
+    PlayerRepository playerRepository
+
     @Override
-    Player getPlayerById(Long playerId) {
-        //insert hibernate/jpa repo interface here to query an actual db for a player - mock it for now
-
-
-        //mock player
-        Team team = new Team(teamName: "The Shams")
-        Player player = new Player(id: 420, name: "Howard", playerNumber: 69, team: team )
+    Player findPlayerById(Long playerId) {
+        //We don't actually have to implement the 'findById()' method here. Hibernate automatically generates the needed SQL code
+        //http://docs.spring.io/spring-data/jpa/docs/1.3.0.RELEASE/reference/html/jpa.repositories.html
+        //Section 2.2.2 Query Creation
+        Player player = playerRepository.findById(playerId)
 
         return player
     }
+
+    @Override
+    List<Player> getPlayersForTeam(Long teamId) {
+        List<Player> players = playerRepository.findByTeamId(teamId)
+
+        return players
+    }
+
+    @Override
+    Long createPlayer(Player player) {
+        Player savedPlayer = playerRepository.save(player)
+        return savedPlayer.id
+    }
+
+    @Override
+    def updatePlayer(Player player) {
+        playerRepository.save(player)
+    }
+
+    @Override
+    def deletePlayer(Long playerId) {
+        playerRepository.delete(playerId)
+    }
+
+
 }

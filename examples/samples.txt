@@ -1,0 +1,32 @@
+* I use a Google Chrome plugin called 'Postman' to test out endpoints *
+
+An example JSON body when creating a player :
+
+{
+  "firstName":"Bob.",
+  "lastName": "Marl"
+}
+
+An example JSON body when creating a team :
+
+{
+  "name":"DCU Ultimate",
+  "shortHandName": "Blazers"
+}
+
+An example JSON body when updating a player :
+
+{
+  "firstName":"Bob.",
+  "lastName": "Marl",
+  "playerNumber": 20
+}
+
+An example JSON body when updating a team
+
+{
+  "name":"DCU Ultimate",
+  "shortHandName": "Dong Squad",
+  "currentSeding": 2,
+  "spiritScore": 12
+}
