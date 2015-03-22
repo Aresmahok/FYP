@@ -95,6 +95,30 @@ class PlayerController {
     }
 
     /*
+  Create a player
+   */
+    @RequestMapping(method = RequestMethod.POST, value = "/{version}/teams/{teamId}/players")
+    def createPlayer(@PathVariable String version, @PathVariable Long teamId, @RequestBody(required = true) CreateMultiplePlayersRequest request) {
+        Team team = teamService.findTeamById(teamId)
+        if (team == null){
+            //Do nothing for now - should throw some form of exception
+        }
+
+        List<Long> playerIds = new ArrayList()
+        for (CreatePlayerRequest playerRequest : request) {
+            Player player = new Player(firstName: playerRequest.firstName, lastName: playerRequest.lastName, team: team, playerNumber: playerRequest.playerNumber)
+
+            Long playerId = playerService.createPlayer(player)
+            playerIds.add(playerId)
+
+        }
+
+        [
+                id: playerIds.collect{ it.toString() },
+        ]
+    }
+
+    /*
     Update a player
      */
     @RequestMapping(method = RequestMethod.PUT, value = "/{version}/teams/{teamId}/players/{playerId}")
