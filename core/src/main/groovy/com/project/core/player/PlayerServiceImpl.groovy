@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
-@Transactional
+@Transactional //
 class PlayerServiceImpl implements PlayerService {
 
     @Autowired
@@ -32,6 +32,13 @@ class PlayerServiceImpl implements PlayerService {
     Long createPlayer(Player player) {
         Player savedPlayer = playerRepository.save(player)
         return savedPlayer.id
+    }
+    @Override
+    def createMultiplePlayers(List<Player> players) {
+
+
+
+
     }
 
     @Override

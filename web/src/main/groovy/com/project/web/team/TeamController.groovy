@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*
 
 import static org.springframework.http.HttpStatus.OK
 
-@RestController
+@RestController //this manages http requests post put get and
 class TeamController {
 
     @Autowired

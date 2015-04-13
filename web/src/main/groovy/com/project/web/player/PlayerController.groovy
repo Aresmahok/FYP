@@ -95,9 +95,32 @@ class PlayerController {
     }
 
     /*
-  Create a player
-   */
-    @RequestMapping(method = RequestMethod.POST, value = "/{version}/teams/{teamId}/players")
+  Create multiple players
+  Sample json
+
+  {"players":[
+    {
+    "firstName": "bob",
+    "lastName": "bob",
+   "playerNumber": 1
+    },
+   {
+   "firstName": "bob2",
+    "lastName": "bob2",
+   "playerNumber": 2
+    },
+   {
+ 	"firstName": "bob3",
+    "lastName": "bob3",
+   "playerNumber": 3
+    },
+  ]
+ }
+
+
+
+*/
+    @RequestMapping(method = RequestMethod.POST, value = "/{version}/teams/{teamId}/multipleplayers")
     def createPlayerRequest(@PathVariable String version, @PathVariable Long teamId, @RequestBody(required = true) CreateMultiplePlayersRequest request) {
         Team team = teamService.findTeamById(teamId)
         if (team == null){
@@ -146,7 +169,7 @@ class PlayerController {
     def deletePlayer(@PathVariable String version, @PathVariable Long teamId, @PathVariable Long playerId) {
         Team team = teamService.findTeamById(teamId)
         if (team == null){
-            //Do nothing for now - should throw some form of exception
+            //Do nothing for now - should throw some form xof exception
         }
 
         Player player = playerService.findPlayerById(playerId)

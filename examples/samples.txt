@@ -27,6 +27,6 @@ An example JSON body when updating a team
 {
   "name":"DCU Ultimate",
   "shortHandName": "Dong Squad",
-  "currentSeding": 2,
+  "currentSeeding": 2,
   "spiritScore": 12
 }

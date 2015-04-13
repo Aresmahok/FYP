@@ -9,6 +9,5 @@ public class CreatePlayerRequest {
 
     @NotBlank
     String lastName
-
     Long playerNumber
 }

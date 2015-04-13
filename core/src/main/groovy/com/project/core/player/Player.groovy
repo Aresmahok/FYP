@@ -11,7 +11,7 @@ import javax.persistence.*
  */
 
 //The Entity annotation lets JPA know to pick up this class and map it
-@Entity
+@Entity //must have an id
 class Player {
     //Anytime you annotate a class with @Entity, it *must* contain an id
     //These annotations take care of assigning ID's to new objects (Players in this case) so we don't have to worry about it
@@ -24,10 +24,12 @@ class Player {
             @org.hibernate.annotations.Parameter(name = "increment_size", value = "1"),
             @org.hibernate.annotations.Parameter(name = "initial_value", value = "100")])
     Long id
-
+    //copy and paste these eveytime you use somehting to be created/used in database
+    // The names below are valid because they share the names with the colums in the db
     String firstName
     String lastName
     Long playerNumber
+
 
     //There will be many players on a team, so we annotate with @ManyToOne
     //FetchType.EAGER tells Hibernate that whenever it loads a Player object from the DB, it should load the players team along with it (even if the team object is never accessed)

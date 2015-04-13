@@ -25,6 +25,7 @@ class Team {
     //CascadeType.ALL tells hibernate that when a team is deleted, it should perform a cascading delete ie. when deleting a team, it should also delete all the teams players
     //FetchType.LAZY  tells hibernate to only load the players of a team when they are explicitly accessed ( eg when team.getPlayers() is called )
     @OneToMany (cascade = CascadeType.ALL, mappedBy = 'team', fetch = FetchType.LAZY)
+    //cascade, if you delete a team from the database, it will delete all the players and entities a
     Set<Player> players
 
     String name
@@ -34,7 +35,7 @@ class Team {
     Long currentSeeding
     Long spiritScore
 
-    def jsonMap(){
+    def jsonMap(){ //key : value
         return [
                 id      : id,
                 name    : name,

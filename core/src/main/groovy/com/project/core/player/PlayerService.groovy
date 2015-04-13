@@ -9,6 +9,8 @@ interface PlayerService {
 
     Long createPlayer(Player player)
 
+    def createMultiplePlayers(List<Player> players)
+
     def updatePlayer(Player player)
 
     def deletePlayer(Long id)
