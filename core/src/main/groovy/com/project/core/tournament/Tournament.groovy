@@ -50,7 +50,8 @@ class Tournament {
         return [
                 id      : id,
                 teams    : teams,
-                fixtures : fixtures,
+                numPitches : numPitches,
+                fixtures : fixtures, //S
                 pitches : pitches,
                 name : name,
                 location    : location
