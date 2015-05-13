@@ -24,7 +24,7 @@ class Player {
             @org.hibernate.annotations.Parameter(name = "increment_size", value = "1"),
             @org.hibernate.annotations.Parameter(name = "initial_value", value = "100")])
     Long id
-    //copy and paste these eveytime you use somehting to be created/used in database
+    //copy and paste these every time you use something to be created/used in database
     // The names below are valid because they share the names with the colums in the db
     String firstName
     String lastName

@@ -1,7 +1,6 @@
 package com.project.core.tournament
 
-import com.project.core.game.Game
-import com.project.core.pitch.Pitch
+
 import com.project.core.team.Team
 import org.hibernate.annotations.GenericGenerator
 
@@ -10,7 +9,6 @@ import javax.persistence.Entity
 import javax.persistence.FetchType
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
-import javax.persistence.JoinColumn
 import javax.persistence.OneToMany
 
 /**
@@ -29,19 +27,21 @@ class Tournament {
 
 
     Long id
+
+    @OneToMany (cascade = CascadeType.ALL, mappedBy = 'team_id', fetch = FetchType.LAZY)
     Set<Team> teams
+
     String name
     Long numPitches
-    Set<Pitch> pitches
+    //Set<Pitch> pitches
     String location
-    Set<Game> pool_1
-    Set<Game> pool_2
-    Set<Game> pool_3
-    Set<Game> pool_4
+    //Set<Game> pool_1
+    //Set<Game> pool_2
+    //Set<Game> pool_3
+    //Set<Game> pool_4
 
-    @OneToMany (cascade = CascadeType.ALL, mappedBy = 'fixtures', fetch = FetchType.EAGER)
-    @JoinColumn(name = 'tournament_id')
-    Set<Game> fixtures
+    //@OneToMany (cascade = CascadeType.ALL, mappedBy = 'tournament', fetch = FetchType.LAZY)
+  //  Set<Game> fixtures
 
 
 
@@ -51,8 +51,8 @@ class Tournament {
                 id      : id,
                 teams    : teams,
                 numPitches : numPitches,
-                fixtures : fixtures, //S
-                pitches : pitches,
+               // fixtures : fixtures, //S
+                //pitches : pitches,
                 name : name,
                 location    : location
         ]

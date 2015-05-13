@@ -18,7 +18,7 @@ class TournamentController {
     TournamentService tournamentService
 
     @RequestMapping(method = RequestMethod.GET, value = "/{version}/tournaments/{tournamentId}")
-    def getTournamentDetails(@PathVariable String version, @PathVariable Long id){
+    def getTournamentDetails(@PathVariable String version, @PathVariable Long tournamentId){
         Tournament tournament = tournamentService.getFixturesForTournament(tournamentId)
         return tournament.jsonMap()
     }
@@ -43,7 +43,7 @@ class TournamentController {
         tournament.location = request.location
         tournament.numPitches = request.numPitches
 
-        tournametService.updateTournament(tournament)
+        tournamentService.updateTournament(tournament)
 
         return new ResponseEntity(OK)
 
@@ -51,8 +51,8 @@ class TournamentController {
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/{version}/tournaments/{tournamentId}")
     def deleteTournament(@PathVariable String version, @PathVariable Long tournamentId) {
-        Tournament tournament = tournamentService.findTournamentId(tournamentId)
-        if (team == null){
+        Tournament tournament = tournamentService.findTournamentById(tournamentId)
+        if (tournament == null){
             //Do nothing for now - should throw some form of exception
         }
 

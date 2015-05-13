@@ -35,7 +35,9 @@ class PlayerServiceImpl implements PlayerService {
     }
     @Override
     def createMultiplePlayers(List<Player> players) {
-
+        for (Player player : players){
+            createPlayer(player)
+        }
 
 
 

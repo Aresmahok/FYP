@@ -1,6 +1,7 @@
 package com.project.core.team
 
 import com.project.core.player.Player
+import com.project.core.tournament.Tournament
 import org.hibernate.annotations.GenericGenerator
 
 import javax.persistence.*
@@ -28,9 +29,11 @@ class Team {
     //cascade, if you delete a team from the database, it will delete all the players and entities a
     Set<Player> players
 
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn(name = 'team_id')
+    Tournament tournament
     String name
     String shortHandName
-
     Long initialSeeding
     Long currentSeeding
     Long spiritScore
@@ -39,6 +42,7 @@ class Team {
         return [
                 id      : id,
                 name    : name,
+                tournament : tournament.name,
                 shortHandName : shortHandName,
                 initialSeeding : initialSeeding,
                 currentSeeding : currentSeeding,
