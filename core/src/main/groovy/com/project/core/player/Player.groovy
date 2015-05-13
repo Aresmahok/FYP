@@ -34,6 +34,8 @@ class Player {
     //There will be many players on a team, so we annotate with @ManyToOne
     //FetchType.EAGER tells Hibernate that whenever it loads a Player object from the DB, it should load the players team along with it (even if the team object is never accessed)
     //If we use FetchType.LAZY, then Hibernate will only load the team when it is explicitly accessed  (eg - when player.getTeam() is called)
+
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = 'team_id')
     Team team

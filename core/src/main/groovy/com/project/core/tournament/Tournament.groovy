@@ -28,13 +28,14 @@ class Tournament {
 
     Long id
 
-    @OneToMany (cascade = CascadeType.ALL, mappedBy = 'team_id', fetch = FetchType.LAZY)
+    @OneToMany (cascade = CascadeType.ALL, mappedBy = 'tournament', fetch = FetchType.LAZY)
     Set<Team> teams
 
     String name
     Long numPitches
     //Set<Pitch> pitches
     String location
+
     //Set<Game> pool_1
     //Set<Game> pool_2
     //Set<Game> pool_3

@@ -16,7 +16,7 @@ class TournamentServiceImpl implements TournamentService {
 
     @Override
     Tournament findTournamentById(Long id) {
-        Tournament tournament = tournamentRepository.findBytournamentId(id)
+        Tournament tournament = tournamentRepository.findByid(id)
 
         return tournament
     }
@@ -27,11 +27,6 @@ class TournamentServiceImpl implements TournamentService {
         return tournament
     }
 
-    @Override
-    List<Game> getFixturesForTournament(Long tournamentId){
-        List<Game> fixtures = tournamentRepository.findBytournamentId(tournamentId);
-        return fixtures
-    }
     @Override
     Long createTournament(Tournament tournament) {
         Tournament savedTournament = tournamentRepository.save(tournament)
